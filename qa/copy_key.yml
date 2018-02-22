@@ -1,0 +1,4 @@
+---
+
+#wget http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pem -O ~/.ssh/openstack.pem
+#chmod 400 ~/.ssh/openstack.pem
