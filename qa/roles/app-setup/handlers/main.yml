@@ -1,0 +1,14 @@
+---
+# handlers file for app-setup
+
+- name: restart Apache service
+  service:
+    name=httpd
+    state=restarted
+    enabled=yes
+
+- name: restart Tomcat service
+  service:
+    name=tomcat
+    state=restarted
+    enabled=yes

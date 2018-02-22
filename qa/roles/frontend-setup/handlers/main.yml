@@ -1,0 +1,8 @@
+---
+# handlers file for frontend-setup
+
+- name: restart HAproxy service
+  service:
+    name=haproxy
+    state=restarted
+    enabled=yes

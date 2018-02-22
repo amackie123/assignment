@@ -1,0 +1,7 @@
+---
+# handlers file for database-setup
+- name: restart postgresql service
+  service:
+    name=postgresql.service
+    state=restarted
+    enabled=yes

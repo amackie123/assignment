@@ -1,0 +1,34 @@
+---
+
+- name: generate dynamic inventory
+  hosts: jumpbox
+  roles:
+  - inventory-setup
+
+- name: install repo on all hosts
+  hosts: all
+  become: yes
+  gather_facts: false
+  roles:
+  - server-config
+
+- name: install haproxy on frontend
+  hosts: frontends
+  become: yes
+  gather_facts: false
+  roles:
+  - frontend-setup
+
+- name: install the postgres database
+  hosts: appdbs
+  become: yes
+  gather_facts: false
+  roles:
+  - database-setup
+
+- name: install the application servers
+  hosts: apps
+  become: yes
+  gather_facts: false
+  roles:
+  - app-setup

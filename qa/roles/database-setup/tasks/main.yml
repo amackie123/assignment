@@ -1,0 +1,18 @@
+---
+# tasks file for database-setup
+
+- name: install postgres
+  yum:
+    name: postgresql-server
+    state: latest
+
+- name: initialise the postgres database
+  find:
+    paths: /var/lib/pgsql/data
+    file_type: directory
+  register: dir_files
+
+- name: run the initialisation
+  shell: postgresql-setup initdb
+  when: dir_files.matched|int == 0
+  notify: restart postgresql service

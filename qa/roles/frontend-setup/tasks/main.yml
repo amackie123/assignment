@@ -1,0 +1,17 @@
+---
+# tasks file for frontend-setup
+
+- name: install http command line util
+  yum:
+    name: httpie
+    state: latest
+- name: install HAProxy
+  yum:
+    name: haproxy
+    state: latest
+  notify: restart HAproxy service
+- name: configure haproxy
+  template:
+    src: haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
+  notify: restart HAproxy service
