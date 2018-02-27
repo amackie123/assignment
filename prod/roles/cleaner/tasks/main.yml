@@ -1,0 +1,5 @@
+# Get AWS Server Instance Information
+- name: AWS servers
+  ec2_metadata_facts:
+  register: aws_servers
+

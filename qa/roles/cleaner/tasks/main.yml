@@ -3,8 +3,6 @@
   os_server_facts:
     cloud: ospcloud
   register: openstack_servers
-  tags:
-    - cleanup
 
 # Remove OSP Instances
 - name: Remove Openstack Server Instances
@@ -17,5 +15,3 @@
     delete_fip: true
   with_items:
   - "{{ openstack_servers}}"
-  tags:
-  - cleanup

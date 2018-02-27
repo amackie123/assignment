@@ -1,0 +1,9 @@
+---
+
+- name: cleanup the 3-tier application
+  hosts: all
+  gather_facts: false
+  become: true
+  roles:
+    - { role: "./roles/cleaner" }
+
