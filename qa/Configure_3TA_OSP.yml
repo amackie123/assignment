@@ -1,7 +1,7 @@
 ---
 
 - name: generate dynamic inventory
-  hosts: jumpbox
+  hosts: osp-jumpbox
   roles:
   - inventory-setup
 
